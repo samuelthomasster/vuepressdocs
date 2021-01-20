@@ -8,6 +8,8 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
+  base: "/vuepressdocs/",
+  description: description,
   theme: "craftdocs",
     themeConfig: {
       codeLanguages: {
