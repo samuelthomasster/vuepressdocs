@@ -1,6 +1,10 @@
 ---
 title: Swagger Petstore v1.0.5
 search: true
+navbar: true
+sidebar: true
+prev: true
+next: true
 code: 
  - go
  - html

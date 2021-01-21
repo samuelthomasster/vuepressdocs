@@ -1,17 +1,74 @@
 const { description } = require('../../package')
-base: "/vuepressdocs/",
 module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
   title: 'API Docs',
+  theme: "craftdocs",
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
   base: "/vuepressdocs/",
   description: description,
-  theme: "craftdocs",
-    themeConfig: {
+  head: [
+    ['link', { rel: 'icon', href: '/logo.png' }]
+  ],
+  plugins: [
+    [
+      "vuepress-plugin-medium-zoom",
+      {
+        selector: ".theme-default-content img:not(.no-zoom)",
+        delay: 1000,
+        options: {
+          margin: 24,
+          background: "var(--medium-zoom-overlay-color)",
+          scrollOffset: 0
+        }
+      }
+    ],
+    [
+      "vuepress-plugin-container",
+      {
+        type: "tip",
+        defaultTitle: ""
+      }
+    ],
+    [
+      "vuepress-plugin-container",
+      {
+        type: "warning",
+        defaultTitle: ""
+      }
+    ],
+    [
+      "vuepress-plugin-container",
+      {
+        type: "danger",
+        defaultTitle: ""
+      }
+    ],
+    [
+      "vuepress-plugin-container",
+      {
+        type: "details",
+        before: info =>
+          `<details class="custom-block details">${
+            info ? `<summary>${info}</summary>` : ""
+          }\n`,
+        after: () => "</details>\n"
+      }
+    ]
+  ],
+  shouldPrefetch: () => false,
+  head: require("./head"),
+  themeConfig: {
+    title: "PetStore Documentation",
+    docSets: [
+      require("./sets/craft-cms"),
+      require("./sets/craft-commerce"),
+      require("./sets/craft-nitro"),
+      require("./sets/getting-started-tutorial")
+    ],
       codeLanguages: {
         go: "Golang",
         javascript: "Javascript",
@@ -21,71 +78,33 @@ module.exports = {
         json: "JSON",
         xml: "XML",
       },
+      feedback: {
+        helpful: "Was this page helpful?",
+        thanks: "Thanks for your feedback.",
+        more: "Give More Feedback →"
+      }
     },
     markdown: {
-      anchor: { level: [2, 3] },
-      extendMarkdown(md) {
-        let markup = require("vuepress-theme-craftdocs/markup");
-        md.use(markup);
+      extractHeaders: [ 'h2', 'h3', 'h4', 'h5' ],
+      anchor: {
+        level: [2, 3, 4]
       },
-    },
-  
-  
-  /**
-   * Extra tags to be injected to the page HTML `<head>`
-   *
-   * ref：https://v1.vuepress.vuejs.org/config/#head
-   */
-  head: [
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
-    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
-  ],
-
-  /**
-   * Theme configuration, here is the default theme configuration for VuePress.
-   *
-   * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
-   */
-  themeConfig: {
-    repo: '',
-    editLinks: false,
-    docsDir: '',
-    editLinkText: '',
-    lastUpdated: false,
-    nav: [
-      {
-        text: 'Guide',
-        link: '/guide/',
-      },
-      {
-        text: 'Config',
-        link: '/config/'
-      },
-      {
-        text: 'VuePress',
-        link: 'https://v1.vuepress.vuejs.org'
-      }
-    ],
-    sidebar: {
-      '/guide/': [
-        {
-          title: 'Guide',
-          collapsable: false,
-          children: [
-            '',
-            'using-vue',
-          ]
+      toc: {
+        format(content) {
+          return content.replace(/[_`]/g, "");
         }
-      ],
+      },
+      extendMarkdown(md) {
+        // provide our own highlight.js to customize Prism setup
+        md.options.highlight = require("./theme/highlight");
+        // add markdown extensions
+        md.use(require("./theme/util/replace-anchor-prefixes").replacePrefixes)
+          .use(require("./theme/markup"))
+          .use(require("markdown-it-deflist"))
+          .use(require("markdown-it-imsize"));
+      }
+    },
+    postcss: {
+      plugins: require("../../postcss.config.js").plugins
     }
-  },
-
-  /**
-   * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
-   */
-  plugins: [
-    '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
-  ]
-}
+}; 
