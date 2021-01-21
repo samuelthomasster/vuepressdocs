@@ -48,7 +48,7 @@
           <PageEdit />
         </p>
         <p>
-          <a href="https://craftcms.com/contact" target="_blank" rel="noopener">
+          <a href="https://www.google.com" target="_blank" rel="noopener">
             <span class="right-footer-icon">
               <Envelope />
             </span>
@@ -56,11 +56,11 @@
           </a>
         </p>
         <p>
-          <a href="https://craftcms.com/" target="_blank" rel="noopener">
+          <a href="https://www.google.com" target="_blank" rel="noopener">
             <span class="right-footer-icon">
               <Reply />
             </span>
-            back to craftcms.com
+            back to home
           </a>
         </p>
         <div class="switch-wrapper block xl:hidden">
@@ -268,7 +268,7 @@ export default {
     },
     getIssueUrl() {
       return encodeURI(
-        `https://github.com/${this.$themeConfig.docsRepo}/issues/new?title=Improve “${this.$page.title}”&body=I have a suggestion for https://craftcms.com/docs${this.$route.fullPath}:\n`
+        `https://github.com/${this.$themeConfig.docsRepo}/issues/new?title=Improve “${this.$page.title}”&body=I have a suggestion for https://www.google.com/docs${this.$route.fullPath}:\n`
       );
     },
   },

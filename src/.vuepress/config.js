@@ -64,10 +64,7 @@ module.exports = {
   themeConfig: {
     title: "PetStore Documentation",
     docSets: [
-      require("./sets/craft-cms"),
-      require("./sets/craft-commerce"),
-      require("./sets/craft-nitro"),
-      require("./sets/getting-started-tutorial")
+      require("./sets/main-docset"),
     ],
       codeLanguages: {
         go: "Golang",
@@ -98,8 +95,7 @@ module.exports = {
         // provide our own highlight.js to customize Prism setup
         md.options.highlight = require("./theme/highlight");
         // add markdown extensions
-        md.use(require("./theme/util/replace-anchor-prefixes").replacePrefixes)
-          .use(require("./theme/markup"))
+        md.use(require("./theme/markup"))
           .use(require("markdown-it-deflist"))
           .use(require("markdown-it-imsize"));
       }
