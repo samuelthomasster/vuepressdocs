@@ -4,9 +4,6 @@ module.exports = {
   theme: "craftdocs",
   base: "/vuepressdocs/",
   description: description,
-  head: [
-    ['link', { rel: 'icon', href: '/assets/logo.png' }]
-  ],
   shouldPrefetch: () => false,
   head: require("./head"),
   themeConfig: {
@@ -39,11 +36,14 @@ module.exports = {
           return content.replace(/[_`]/g, "");
         }
       },
-      config(md) {
+      extendMarkdown(md) {
         // provide our own highlight.js to customize Prism setup
-        let markup = require("vuepress-theme-craftdocs/markup")
-        md.use(markup)
-      }
+        md.options.highlight = require("./theme/highlight");
+        // add markdown extensions
+        md.use(require("./theme/markup"))
+          .use(require("markdown-it-deflist"))
+          .use(require("markdown-it-imsize"));
+      }  
     },
     postcss: {
     plugins: require("../../postcss.config.js").plugins

@@ -2,7 +2,6 @@
 title: Petstore v1.0.5
 prev: true
 next: true
-split: true
 code: 
  - go
  - html
@@ -57,7 +56,7 @@ Everything about your Pets
 
 <a id="opIduploadFile"></a>
 
----
+
 > Code samples
 
 ::: code
@@ -177,13 +176,14 @@ file: string
 |» additionalMetadata|body|string|false|Additional data to pass to server|
 |» file|body|string(binary)|false|file to upload|
 
----
+
 > Example responses
 
 > 200 Response
 
  
 ::: code
+
 ```json
 {
   "code": 0,
@@ -208,7 +208,7 @@ petstore_auth ( Scopes: write:pets read:pets )
 
 <a id="opIdaddPet"></a>
 
----
+
 > Code samples
 
 ::: code
@@ -318,7 +318,7 @@ p JSON.parse(result)
 
 *Add a new pet to the store*
 
----
+
 > Body parameter
 
 ::: code
@@ -383,7 +383,7 @@ petstore_auth ( Scopes: write:pets read:pets )
 
 <a id="opIdupdatePet"></a>
 
----
+
 > Code samples
 
 ::: code
@@ -493,7 +493,7 @@ p JSON.parse(result)
 
 *Update an existing pet*
 
----
+
 > Body parameter
 
 ::: code
@@ -560,7 +560,7 @@ petstore_auth ( Scopes: write:pets read:pets )
 
 <a id="opIdfindPetsByStatus"></a>
 
----
+
 > Code samples
 
 ::: code
@@ -674,7 +674,7 @@ Multiple status values can be provided with comma separated strings
 |status|pending|
 |status|sold|
 
----
+
 > Example responses
 
 > 200 Response
@@ -762,7 +762,7 @@ petstore_auth ( Scopes: write:pets read:pets )
 
 <a id="opIdfindPetsByTags"></a>
 
----
+
 > Code samples
 
 ::: code
@@ -868,7 +868,7 @@ Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3
 |---|---|---|---|---|
 |tags|query|array[string]|true|Tags to filter by|
 
----
+
 > Example responses
 
 > 200 Response
@@ -956,7 +956,7 @@ petstore_auth ( Scopes: write:pets read:pets )
 
 <a id="opIdgetPetById"></a>
 
----
+
 > Code samples
 
 ::: code
@@ -1057,7 +1057,7 @@ Returns a single pet
 |---|---|---|---|---|
 |petId|path|integer(int64)|true|ID of pet to return|
 
----
+
 > Example responses
 
 > 200 Response
@@ -1120,7 +1120,7 @@ api_key
 
 <a id="opIdupdatePetWithForm"></a>
 
----
+
 > Code samples
 
 ::: code
@@ -1216,7 +1216,7 @@ p JSON.parse(result)
 
 *Updates a pet in the store with form data*
 
----
+
 > Body parameter
 
 ::: code
@@ -1251,7 +1251,7 @@ petstore_auth ( Scopes: write:pets read:pets )
 
 <a id="opIddeletePet"></a>
 
----
+
 > Code samples
 
 ::: code
@@ -1372,7 +1372,7 @@ Access to Petstore orders
 
 <a id="opIdplaceOrder"></a>
 
----
+
 > Code samples
 
 ::: code
@@ -1473,7 +1473,7 @@ p JSON.parse(result)
 
 *Place an order for a pet*
 
----
+
 > Body parameter
 ::: code
 ```json
@@ -1494,7 +1494,7 @@ p JSON.parse(result)
 |---|---|---|---|---|
 |body|body|[Order](#schemaorder)|true|order placed for purchasing the pet|
 
----
+
 > Example responses
 
 > 200 Response
@@ -1539,7 +1539,7 @@ This operation does not require authentication
 
 <a id="opIdgetOrderById"></a>
 
----
+
 > Code samples
 
 ::: code
@@ -1636,7 +1636,7 @@ For valid response try integer IDs with value >= 1 and <= 10. Other values will 
 |---|---|---|---|---|
 |orderId|path|integer(int64)|true|ID of pet that needs to be fetched|
 
----
+
 > Example responses
 
 > 200 Response
@@ -1682,7 +1682,7 @@ This operation does not require authentication
 
 <a id="opIddeleteOrder"></a>
 
----
+
 > Code samples
 
 ::: code
@@ -1778,7 +1778,7 @@ This operation does not require authentication
 
 <a id="opIdgetInventory"></a>
 
----
+
 > Code samples
 
 ::: code
@@ -1874,7 +1874,7 @@ p JSON.parse(result)
 
 Returns a map of status codes to quantities
 
----
+
 > Example responses
 
 > 200 Response
@@ -1918,7 +1918,7 @@ Operations about user
 
 <a id="opIdcreateUsersWithArrayInput"></a>
 
----
+
 > Code samples
 
 ::: code
@@ -2020,7 +2020,7 @@ p JSON.parse(result)
 
 *Creates list of users with given input array*
 
----
+
 > Body parameter
 
 ::: code
@@ -2062,7 +2062,7 @@ This operation does not require authentication
 
 <a id="opIdcreateUsersWithListInput"></a>
 
----
+
 > Code samples
 
 ::: code
@@ -2201,7 +2201,7 @@ This operation does not require authentication
 
 <a id="opIdgetUserByName"></a>
 
----
+
 > Code samples
 
 ::: code
@@ -2297,7 +2297,7 @@ p JSON.parse(result)
 |---|---|---|---|---|
 |username|path|string|true|The name that needs to be fetched. Use user1 for testing. |
 
----
+
 > Example responses
 
 > 200 Response
@@ -2348,7 +2348,7 @@ This operation does not require authentication
 
 <a id="opIdupdateUser"></a>
 
----
+
 > Code samples
 
 ::: code
@@ -2448,7 +2448,7 @@ p JSON.parse(result)
 
 This can only be done by the logged in user.
 
----
+
 > Body parameter
 
 :::
@@ -2489,7 +2489,7 @@ This operation does not require authentication
 
 <a id="opIddeleteUser"></a>
 
----
+
 > Code samples
 
 ::: code
@@ -2586,7 +2586,7 @@ This operation does not require authentication
 
 <a id="opIdloginUser"></a>
 
----
+
 > Code samples
 
 ::: code
@@ -2717,7 +2717,7 @@ This operation does not require authentication
 
 <a id="opIdlogoutUser"></a>
 
----
+
 > Code samples
 
 ::: code
@@ -2805,7 +2805,7 @@ This operation does not require authentication
 
 <a id="opIdcreateUser"></a>
 
----
+
 > Code samples
 
 :::
@@ -2907,7 +2907,7 @@ p JSON.parse(result)
 
 This can only be done by the logged in user.
 
----
+
 > Body parameter
 
 ::: code
@@ -2951,7 +2951,7 @@ This operation does not require authentication
 <a id="tocSapiresponse"></a>
 <a id="tocsapiresponse"></a>
 
----
+
 ::: code
 
 ```json
