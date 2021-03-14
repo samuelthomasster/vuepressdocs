@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["GT Eesti", "Futura Std", "Futura", "Helvetica", "sans-serif"]
+        sans: ["Lato Regular", "Lato Black", "Lato Bold", "Lato Bold Italic", "sans-serif"]
       },
       colors: {
         slate: "#2d3748",

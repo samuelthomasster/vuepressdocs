@@ -1,8 +1,8 @@
 module.exports = {
-  title: "API Reference Documentation | %v",
-  setTitle: "API Reference Documentation",
-  icon: "/src/.vuepress/logo.png",
+  title: "API reference | %v",
+  setTitle: "API reference",
   baseDir: "",
+  icon:"/assets/logo.png",
   searchPlaceholder: "Search the docs (Press “/” to focus)",
   primarySet: true,
   locales: {
