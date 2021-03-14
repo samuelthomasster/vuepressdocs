@@ -2,7 +2,7 @@ module.exports = {
   title: "API reference | %v",
   setTitle: "API reference",
   baseDir: "",
-  icon:"/assets/logo.png",
+  icon:"../assets/logo.png",
   searchPlaceholder: "Search the docs (Press “/” to focus)",
   primarySet: true,
   locales: {
